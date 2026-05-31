@@ -1,16 +1,7 @@
 from fastapi import FastAPI
-from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
 
-load_dotenv()
+from app.controller.ai_controller import router
 
 app = FastAPI()
 
-llm = ChatOpenAI(model="gpt-4o-mini")
-
-@app.get("/ask")
-def ask(question: str):
-    response = llm.invoke(question)
-    return {
-        "answer": response.content
-    }
+app.include_router(router)
