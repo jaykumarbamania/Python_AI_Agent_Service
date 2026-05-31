@@ -5,6 +5,8 @@ from app.tools.order_tool import get_order_status
 
 from app.config.llm_config import llm
 
+from app.prompts.system_prompt import SYSTEM_PROMPT
+
 tools = [get_company_name, get_order_status]
 
 # agent=initialize_agent(
@@ -17,5 +19,6 @@ tools = [get_company_name, get_order_status]
 agent=create_agent(
     tools=tools,
     model=llm,
-    debug=True
+    debug=True,
+    system_prompt=SYSTEM_PROMPT
 )
