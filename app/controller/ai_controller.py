@@ -15,6 +15,8 @@ def ask(question: str):
         ]
     })
 
+    print(response)
+    
     return {
         "answer" : response["messages"][-1].content
     }
