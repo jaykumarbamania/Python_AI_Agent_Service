@@ -4,6 +4,8 @@ from langchain_core.tools import tool
 
 from app.config.app_config import CLIENT_SERVICE_BASE_URL
 
+from app.services.customer_service import CustomerService
+
 
 @tool
 def get_customer_details(customer_id: str):
@@ -12,11 +14,5 @@ def get_customer_details(customer_id: str):
 
     Use customerId returned from orders.
     """
-    
-    print(f"Calling Customer API for {customer_id}")
 
-    response = requests.get(
-        f"{CLIENT_SERVICE_BASE_URL}/customers/{customer_id}"
-    )
-
-    return response.json()
+    return CustomerService.get_customer(customer_id)

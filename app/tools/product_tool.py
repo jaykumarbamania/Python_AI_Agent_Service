@@ -4,6 +4,8 @@ from langchain_core.tools import tool
 
 from app.config.app_config import CLIENT_SERVICE_BASE_URL
 
+from app.services.product_service import ProductService
+
 
 @tool
 def get_product_details(product_id: str):
@@ -13,10 +15,4 @@ def get_product_details(product_id: str):
     Use productId returned from orders.
     """
 
-    print(f"Calling Product API for {product_id}")
-
-    response = requests.get(
-        f"{CLIENT_SERVICE_BASE_URL}/products/{product_id}"
-    )
-
-    return response.json()
+    return ProductService.get_product(product_id)
