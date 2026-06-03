@@ -17,6 +17,8 @@ def get_order_status(order_id: str):
         orderId, customerName, status, amount
     """
 
+    print(f"Calling Order API for {order_id}")
+
     response = requests.get(
         f"{CLIENT_SERVICE_BASE_URL}/orders/{order_id}"
     )
