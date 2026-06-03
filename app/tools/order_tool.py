@@ -8,13 +8,14 @@ from app.config.app_config import CLIENT_SERVICE_BASE_URL
 @tool
 def get_order_status(order_id: str):
     """
-    Fetch order details.
-
-    Args:
-        order_id: Unique order identifier
+    Get order information.
 
     Returns:
-        orderId, customerName, status, amount
+    orderId,
+    customerId,
+    productId,
+    status,
+    amount
     """
 
     print(f"Calling Order API for {order_id}")

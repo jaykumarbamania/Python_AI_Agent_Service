@@ -8,17 +8,13 @@ from app.config.app_config import CLIENT_SERVICE_BASE_URL
 @tool
 def get_product_details(product_id: str):
     """
-    Fetch product details using product id.
+    Get product information.
 
-    Args:
-        product_id: Unique product identifier
-
-    Returns:
-        productId, name, price, stock
+    Use productId returned from orders.
     """
 
     print(f"Calling Product API for {product_id}")
-    
+
     response = requests.get(
         f"{CLIENT_SERVICE_BASE_URL}/products/{product_id}"
     )
